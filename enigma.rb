@@ -2,6 +2,11 @@ class Enigma
   attr_accessor :text
 
   def initialize(text)
+    anti_words = /[^A-z \ ]/
+    if anti_words.match(text)
+      puts "半角の小文字、大文字のAからZまでのアルファベット、もしくは半角のスペースのみ入力可能です。"
+      exit!
+    end
     self.text = text
   end
 
